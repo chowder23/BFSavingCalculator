@@ -13,6 +13,8 @@ namespace BFSavingCalculator
         double _actualMoney;
         int _monthsNumber;
         string _savingName;
+
+
         public baseSaving(double monthlySaving_, string savingName_, double desiredMoney_)
         {
             this._monthlySaving = monthlySaving_;
@@ -22,9 +24,30 @@ namespace BFSavingCalculator
             this._actualMoney = 0;
         }
 
+
         public int getMonths()
         {
             return _monthsNumber;
+        }
+
+        public double getMonthlySaving()
+        {
+            return _monthlySaving;
+        }
+
+        public double getDesiredMoney()
+        {
+            return _desiredMoney;
+        }
+
+        public double getActualMoney()
+        {
+            return _actualMoney;
+        }
+
+        public string getSavingName()
+        {
+            return _savingName;
         }
 
         public int getNeededMoths()
@@ -50,11 +73,6 @@ namespace BFSavingCalculator
         public bool GoalReached()
         {
             return _actualMoney >= _desiredMoney ? true : false;
-        }
-
-        public double getMonthlySaving()
-        {
-            return _monthlySaving;
         }
 
         public override string ToString()
