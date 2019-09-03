@@ -11,20 +11,23 @@ namespace BFSavingCalculator
     {
         public static void SaveOut(List<baseSaving> savings_)
         {
-            if (File.Exists("%userprofile%\\documents\\savings.txt"))
+            if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\savings.txt"))
             {
                 Save(savings_);
             }
             else
             {
-                File.Create("%userprofile%\\documents\\savings.txt");
+                using (File.Create(@"C:\Users\" + Environment.UserName + @"\Documents\savings.txt"))
+                {
+                }
+               
                 Save(savings_);
             }
         }
 
         private static void Save(List<baseSaving> savings_)
         {
-            StreamWriter sw = new StreamWriter("%userprofile%\\documents\\savings.txt",true);
+            StreamWriter sw = new StreamWriter(@"C:\Users\" + Environment.UserName + @"\Documents\savings.txt", true);
             foreach (var saving in savings_)
             {
                 sw.WriteLine(saving.getSavingName()+"|"+saving.getMonthlySaving() + "|" + saving.getDesiredMoney() + "|" +saving.getActualMoney() + "|" +saving.getMonths());
