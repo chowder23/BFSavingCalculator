@@ -24,7 +24,7 @@ namespace BFSavingCalculator
 
         private static void Save(List<baseSaving> savings_)
         {
-            StreamWriter sw = new StreamWriter("%userprofile%\\documents\\savings.txt");
+            StreamWriter sw = new StreamWriter("%userprofile%\\documents\\savings.txt",true);
             foreach (var saving in savings_)
             {
                 sw.WriteLine(saving.getSavingName()+"|"+saving.getMonthlySaving() + "|" + saving.getDesiredMoney() + "|" +saving.getActualMoney() + "|" +saving.getMonths());
