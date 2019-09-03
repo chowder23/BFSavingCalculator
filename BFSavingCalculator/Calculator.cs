@@ -54,6 +54,7 @@ namespace BFSavingCalculator
         private static void ShowProfile()
         {
             Console.WriteLine("Neved: " + _myName + "\nJövedelmed: " + _mySalary + "\nMegmaradt jövedelem: " + _currentSalary);
+            Console.ReadLine();
         }
 
         private static void RemaningSalary()
