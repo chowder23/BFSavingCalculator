@@ -42,7 +42,15 @@ namespace BFSavingCalculator
 
         public static bool ReadFiles()
         {
-            return false;
+            if (FileOutSaver.FileExist())
+            {
+                _allSaving = FileOutSaver.LoadIn();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static void ShowMenu()
@@ -95,6 +103,7 @@ namespace BFSavingCalculator
                     break;
                 case "5":
                     going = false;
+                    FileOutSaver.SaveOut(_allSaving);
                     break;
                 default:
                     break;
@@ -110,7 +119,8 @@ namespace BFSavingCalculator
 
                 if (ReadFiles())
                 {
-
+                    ShowMenu();
+                    ReadMenuInput();
                 }
                 else if (first)
                 {
