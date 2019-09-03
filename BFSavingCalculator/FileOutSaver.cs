@@ -35,5 +35,29 @@ namespace BFSavingCalculator
             sw.Close();
         }
 
+        public static bool FileExist()
+        {
+            return File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\savings.txt");
+        }
+
+        public static List<baseSaving> LoadIn()
+        {
+            List<baseSaving> savings = new List<baseSaving>();
+            baseSaving newSaving;
+
+            using (StreamReader sr = new StreamReader(@"C:\Users\" + Environment.UserName + @"\Documents\savings.txt"))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] splitLine = line.Split('|');
+                    newSaving = new baseSaving(splitLine[0], (double)int.Parse(splitLine[1]), (double)int.Parse(splitLine[2]), int.Parse(splitLine[4]), (double)int.Parse(splitLine[3]));
+                    savings.Add(newSaving);
+                }
+                
+            }
+
+            return savings;
+        }
     }
 }
