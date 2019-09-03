@@ -24,6 +24,15 @@ namespace BFSavingCalculator
             this._actualMoney = 0;
         }
 
+        public baseSaving(string savingName_, double monthlySaving_, double desiredMoney_, int monthsNumber_, double actualMoney_ )
+        {
+            this._monthlySaving = monthlySaving_;
+            this._monthsNumber = monthsNumber_;
+            this._savingName = savingName_;
+            this._desiredMoney = desiredMoney_;
+            this._actualMoney = actualMoney_;
+        }
+
 
         public int getMonths()
         {
